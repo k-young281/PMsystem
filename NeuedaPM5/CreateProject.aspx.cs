@@ -110,6 +110,16 @@ public partial class CreateProject : Page
         }
     }
 
+
+    protected void btnSubmit_RC_OnClick(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnReset_RC_OnClick(object sender, EventArgs e)
+    {
+
+    }
 }
 
 
