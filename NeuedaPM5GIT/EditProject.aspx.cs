@@ -28,10 +28,9 @@ public partial class EditProject : System.Web.UI.Page
 
     protected void ResetForm()
     {
-        txtProjectName.Text = "";
+        
         txtDMNeueda.Text = "";
         txtClient.Text = "";
-        txtDMClient.Text = "";
         txtStartDate.Text = "";
         txtEndDate.Text = "";
         txtProjectDetails.Text = "";
@@ -43,10 +42,10 @@ public partial class EditProject : System.Web.UI.Page
     {
         SqlConnection SQLcon = new SqlConnection("Data Source = DESKTOP-MUJI391\\SQLEXPRESS;  Initial Catalog = NeuedaProjects; Integrated Security=True");
         {
-            SqlCommand cmd = new SqlCommand("UPDATE ProjectInformation SET Project_Name = @p2, Neueda_Delivery_Manager = @p3, Client = @p4, Client_Delivery_Manager = @p5, Start_Date = @p6, End_Date = @p7, Project_Details = @p8, Project_Code = @p9, Project_Type = @p10 WHERE Project_Reference = @p1", SQLcon);
+            SqlCommand cmd = new SqlCommand("UPDATE ProjectInformation SET Proj_Name = @p2, Proj_DM_Neueda = @p3, Proj_Client = @p4, Proj_DM_Client = @p5, Proj_Start = @p6, Proj_End = @p7, Proj_Details = @p8, Proj_Code = @p9, Proj_Type = @p10 WHERE Proj_Ref = @p1", SQLcon);
             cmd.Parameters.AddWithValue("@p1", ddProjectRef.SelectedValue.ToString());
             cmd.Parameters.AddWithValue("@p2", txtProjectName.Text);
-            cmd.Parameters.AddWithValue("@p3", txtDMNeueda.Text);
+            cmd.Parameters.AddWithValue("@p3", ddDMNeueda.Text);
             cmd.Parameters.AddWithValue("@p4", txtClient.Text);
             cmd.Parameters.AddWithValue("@p5", txtDMClient.Text);
             cmd.Parameters.AddWithValue("@p6", txtStartDate.Text);
@@ -54,7 +53,9 @@ public partial class EditProject : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@p8", txtProjectDetails.Text);
             cmd.Parameters.AddWithValue("@p9", txtProjectCode.Text);
             cmd.Parameters.AddWithValue("@p10", txtProjectType.Text);
-
+            //To be added once login and timestamp implemented
+            //Proj_Updated = @p11, Proj_Updated_By = @p12
+            
 
             try
             {
@@ -80,7 +81,7 @@ public partial class EditProject : System.Web.UI.Page
 
         SqlConnection SQLcon = new SqlConnection("Data Source = DESKTOP-MUJI391\\SQLEXPRESS;  Initial Catalog = NeuedaProjects; Integrated Security=True");
         {
-            SqlCommand cmd = new SqlCommand("SELECT *FROM ProjectInformation WHERE Project_Reference = '" + ddProjectRef.SelectedValue.ToString() + "'", SQLcon);
+            SqlCommand cmd = new SqlCommand("SELECT *FROM ProjectInformation WHERE Proj_Ref = '" + ddProjectRef.SelectedValue.ToString() + "'", SQLcon);
             SQLcon.Open();
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -89,15 +90,15 @@ public partial class EditProject : System.Web.UI.Page
                 try
                 {
 
-                    txtProjectName.Text = (reader["Project_Name"].ToString());
-                    txtDMNeueda.Text = (reader["Neueda_Delivery_Manager"].ToString());
-                    txtClient.Text = (reader["Client"].ToString());
-                    txtDMClient.Text = (reader["Client_Delivery_Manager"].ToString());
-                    txtStartDate.Text = (reader["Start_Date"].ToString());
-                    txtEndDate.Text = (reader["End_Date"].ToString());
-                    txtProjectDetails.Text = (reader["Project_Details"].ToString());
-                    txtProjectCode.Text = (reader["Project_Code"].ToString());
-                    txtProjectType.Text = (reader["Project_Type"].ToString());
+                    txtProjectName.Text = (reader["Proj_Name"].ToString());
+                    txtDMNeueda.Text = (reader["Proj_DM_Neueda"].ToString());
+                    txtClient.Text = (reader["Proj_Client"].ToString());
+                    txtDMClient.Text = (reader["Proj_DM_Client"].ToString());
+                    txtStartDate.Text = (reader["Proj_Start"].ToString());
+                    txtEndDate.Text = (reader["Proj_End"].ToString());
+                    txtProjectDetails.Text = (reader["Proj_Details"].ToString());
+                    txtProjectCode.Text = (reader["Proj_Code"].ToString());
+                    txtProjectType.Text = (reader["Proj_Type"].ToString());
 
 
                 }
