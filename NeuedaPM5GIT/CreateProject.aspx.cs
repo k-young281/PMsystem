@@ -46,7 +46,9 @@ public partial class CreateProject : Page
             cmd.Parameters.AddWithValue("@p9", txtProjectCode.Text);
             cmd.Parameters.AddWithValue("@p10", ddlProjectType.Text);
             //Updated and Updated_By still needs implemetnted
-
+            //Add back into statement when time stamp and login implemented
+            //Proj_Updated, Proj_Updated_By
+            //, @p11, @p12
 
             try
             {
@@ -92,10 +94,10 @@ public partial class CreateProject : Page
 
         SqlConnection SQLcon = new SqlConnection("Data Source = DESKTOP-MUJI391\\SQLEXPRESS;  Initial Catalog = NeuedaProjects; Integrated Security=True");
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO ForecastDeliveryEstimates (Resource, Cost, Sell) VALUES (@p1, @p2, @p3)", SQLcon);
-            //cmd.Parameters.AddWithValue("@p1", txtAddResource.Text);
-            cmd.Parameters.AddWithValue("@p2", 0);
-            cmd.Parameters.AddWithValue("@p3", 0);
+            SqlCommand cmd = new SqlCommand("INSERT INTO ForecastDeliveryEstimates (Emp_Name, Emp_Buy, Epm_Sell) VALUES (@p1, @p2, @p3)", SQLcon);
+            cmd.Parameters.AddWithValue("@p1", txtEmp_RC.Text);
+            cmd.Parameters.AddWithValue("@p2", Convert.ToDecimal(txtBuy.Text));
+            cmd.Parameters.AddWithValue("@p3", Convert.ToDecimal(txtSell.Text));
 
             try
             {
@@ -124,8 +126,8 @@ public partial class CreateProject : Page
             SqlCommand cmd = new SqlCommand("INSERT INTO RateCard(Proj_Ref, Emp_Name, Emp_Buy, Emp_Sell) VALUES (@p1, @p2, @p3, @p4)", SQLcon);
             cmd.Parameters.AddWithValue("@p1", txtRef_RC.Text);
             cmd.Parameters.AddWithValue("@p2", txtEmp_RC.Text);
-            cmd.Parameters.AddWithValue("@p3", txtBuy.Text);
-            cmd.Parameters.AddWithValue("@p4", txtSell.Text);
+            cmd.Parameters.AddWithValue("@p3", Convert.ToDecimal(txtBuy.Text));
+            cmd.Parameters.AddWithValue("@p4", Convert.ToDecimal(txtSell.Text));
 
             try
             {
@@ -140,13 +142,18 @@ public partial class CreateProject : Page
             finally
             {
                 SQLcon.Close();
-                ResetForm();
+                ResetRateCard();
                 ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Information Saved');", true);
             }
         }
     }
 
     protected void btnReset_RC_OnClick(object sender, EventArgs e)
+    {
+        ResetRateCard();
+    }
+    
+    protected void ResetRateCard()
     {
         txtEmp_RC.Text = "";
         txtBuy.Text = "";
