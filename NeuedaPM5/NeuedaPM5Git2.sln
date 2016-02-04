@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
 ﻿
->>>>>>> origin/master
-=======
-﻿
->>>>>>> origin/master
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "NeuedaPM5", "..\NeuedaPM5", "{3E0BDB72-A433-4390-AA4C-EAD824BC5C50}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "NeuedaPM5", ".", "{3E0BDB72-A433-4390-AA4C-EAD824BC5C50}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_50457"
