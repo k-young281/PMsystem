@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CreateProject.aspx.cs" Inherits="CreateProject" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
+
 <!DOCTYPE html>
 
 
@@ -293,6 +295,7 @@
         
         <div id="page-wrapper">
             <form role="form" runat="server">
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Enter Project Details</h1>
@@ -364,6 +367,7 @@
                                     </div>
                                     <div class ="col-md-3">
                                         <asp:TextBox CssClass="form-control" runat="server" ID="txtStartDate"></asp:TextBox>  
+                                        <ajaxToolkit:MaskedEditExtender ID="txtStartDate_MaskedEditExtender" Mask="99/99/9999" runat="server" TargetControlID="txtStartDate" />
                                         <br />
                                     </div>
                                     <div class="col-md-3">
@@ -372,6 +376,7 @@
                                     </div>
                                     <div class ="col-md-3">
                                         <asp:TextBox CssClass="form-control" runat="server" ID="txtEndDate"></asp:TextBox>
+                                        <ajaxToolkit:MaskedEditExtender ID="txtEndDate_MaskedEditExtender" Mask="99/99/9999" runat="server" TargetControlID="txtEndDate" />
                                         <br />
                                     </div>
                                 </div>
