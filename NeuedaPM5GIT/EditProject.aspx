@@ -374,8 +374,9 @@
                                             </div>
 
                                             <div class="col-md-3">
-                                                <asp:TextBox CssClass="form-control" runat="server" ID="txtDMClient"></asp:TextBox>
+                                                <asp:DropDownList CssClass ="form-control" runat="server" ID="ddDM_Neueda" AutoPostBack ="True" AppendDataBoundItems="True" DataSourceID="NeuedaProjectsSource" DataTextField ="Emp_Name" DataValueField="Emp_Name" OnSelectedIndexChanged="ddDM_Neueda_SelectedIndexChanged"></asp:DropDownList>
                                                 <br />
+                                                <asp:SqlDataSource ID="NeuedaProjectsSource" runat="server" ConnectionString ="<%$ ConnectionStrings:NeuedaProjectsConnectionString %>" SelectCommand="SELECT [Emp_Name] FROM [RateCard]"></asp:SqlDataSource>
                                             </div>
 
                                         </div>
