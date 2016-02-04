@@ -473,15 +473,77 @@
                                     <div class ="col-md-2"> 
                                         <asp:Button  CssClass="btn btn-primary" ID="btnAddResource" runat="server" Text="Add Resource" OnClick="btnAddResource_Click" />
                                     </div>
+                                   </div>
+                                  </div>
+                                 </div>
                                 </div>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                                            </div>
+                               </div>
+                              </div>
+                             </div>
+
+                    <!-- Rate Card-->
+                            <div class="Row">
+	                        <div class="col-lg-4">
+		                        <div class ="panel panel-primary">
+			                        <div class="panel-heading">
+				                        Add Employees to Project
+			                        </div>
+			                        <div class="panel-body">
+                                        <div class = "col-lg-12">
+                                            <div class ="Row">
+                                        <div class ="col-sm-4">
+                                            <label>Reference</label>
+                                            <br />
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <asp:TextBox CssClass="form-control" runat="server" ID="txtRef_RC" ReadOnly="True"></asp:TextBox>
+                                            <br />
                                         </div>
                                     </div>
 
-                </div>
+                                        <div class ="Row">
+                                        <div class ="col-sm-4">
+                                            <label>Employee</label>
+                                            <br />
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <asp:TextBox CssClass="form-control" runat="server" ID="txtEmp_RC"></asp:TextBox>
+                                            <br />
+                                        </div>
+                                    </div>
+
+                                        <div class ="Row">
+                                        <div class ="col-sm-4">
+                                            <label>Buy</label>
+                                            <br />
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <asp:TextBox CssClass="form-control" runat="server" ID="txtBuy"></asp:TextBox>
+                                            <br />
+                                        </div>
+                                    </div>
+
+                                        <div class ="Row">
+                                        <div class ="col-sm-4">
+                                            <label>Sell</label>
+                                            <br />
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <asp:TextBox CssClass="form-control" runat="server" ID="txtSell"></asp:TextBox>
+                                            <br />
+                                        </div>
+                                    </div>
+                                              <br />
+                                        
+                                        
+                                                    <asp:Button CssClass="btn btn-primary" id="btnSubmit_RC" text="Submit" runat="server" OnClick="btnSubmit_RC_OnClick"></asp:Button>
+                                                    <asp:Button CssClass="btn btn-warning" ID="btnReset_RC" Text="Reset" runat="server" OnClick="btnReset_RC_OnClick"></asp:Button>
+			                      </div>
+	                            </div>
+                               </div>
+                              </div>
+                             </div>
+
                 <!-- /.col-lg-12 -->
                 </form>
             </div>
